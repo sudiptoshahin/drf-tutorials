@@ -1,4 +1,4 @@
-tutorials/tutorials/__pycache__/
-tutorials/snippets/migrations/__pycache__/
-tutorials/snippets/__pycache__/
+/tutorials/tutorials/__pycache__/
+/tutorials/snippets/migrations/__pycache__/
+/tutorials/snippets/__pycache__/
 /env

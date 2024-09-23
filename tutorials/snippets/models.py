@@ -24,6 +24,10 @@ class Snippet(models.Model):
                               on_delete=models.CASCADE)
     highlighted = models.TextField()
 
+    # class Meta:
+    #     field = ['owner.username']
+    #     ordering = ['created']
+
     def save(self, *args, **kwargs):
         """
         Use the `pygments` library to create a highlighted HTML
@@ -37,6 +41,16 @@ class Snippet(models.Model):
         self.highlighted = highlight(self.code, lexer, formatter)
         super().save(*args, **kwargs)
 
-    class Meta:
-        field = ['owner.username']
-        ordering = ['created']
+
+class Person(models.Model):
+
+    GENDER_CHOICE = [
+        ('male', 'Male'),
+        ('female', 'Female')
+    ]
+
+    first_name = models.CharField(max_length=100, help_text='First name')
+    last_name = models.CharField(max_length=100, help_text='Last name')
+    email = models.EmailField(help_text='Email', unique=True)
+    gender = models.CharField(max_length=6, choices=GENDER_CHOICE,
+                              help_text='Gender')

@@ -2,3 +2,5 @@
 /tutorials/snippets/migrations/__pycache__/
 /tutorials/snippets/__pycache__/
 /env
+tutorials/snippets/__pycache__
+*.pyc

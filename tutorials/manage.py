@@ -3,6 +3,9 @@
 import os
 import sys
 
+# add custom settings path
+sys.path.append(os.getcwd())
+
 
 def main():
     """Run administrative tasks."""

@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'snippets',
     'inventory',
-    'db_tests'
+    'db_tests',
+    'book_warehouse',
 ]
 
 MIDDLEWARE = [

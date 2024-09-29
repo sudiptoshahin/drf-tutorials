@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from utils.model_settings import StockStatus
+from tutorials.utils.model_settings import StockStatus
 from django.utils.text import slugify
 
 

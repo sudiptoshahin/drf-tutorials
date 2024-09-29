@@ -52,15 +52,15 @@ class ShoppingBasket(models.Model):
 
 
 class Book(models.Model):
-    isbn = models.CharField(max_length=255, primary_key=True, unique=True)
+    isbn = models.CharField(max_length=255, unique=True)
     year = models.CharField(max_length=5)
     title = models.CharField(max_length=100)
     price = models.FloatField(max_length=19)
     # check to use CASCADE if PROTECT is not worked
-    publisher_name = models.ForeignKey('Publisher', on_delete=models.PROTECT,
-                                       related_name='book_publisher')
-    author_name = models.ForeignKey('Author', on_delete=models.PROTECT,
-                                    related_name='book_author')
+    publisher_fk = models.ForeignKey('Publisher', on_delete=models.PROTECT,
+                                     related_name='book_publisher')
+    author_fk = models.ForeignKey('Author', on_delete=models.PROTECT,
+                                  related_name='book_author')
 
 
 class ShoppingBasket_Book(models.Model):

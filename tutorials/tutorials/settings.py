@@ -19,13 +19,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    # 'rest_framework',
     'snippets',
     'inventory',
     'db_tests',
@@ -41,6 +42,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Handle pagination Globally
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+#     'PAGE_SIZE': 100
+# }
+REST_FRAMEWORK = {
+    # 'DEFAULT_PAGINATION_CLASS': 'drf_tutorials.tutorials.pagination.custom_pagination.CustomPagination'
+    # 'DEFAULT_PAGINATION_CLASS': 'tutorials.book_warehouse.views.CustomPagination'
+}
+
+APPEND_SLASH = False
 
 ROOT_URLCONF = 'tutorials.urls'
 

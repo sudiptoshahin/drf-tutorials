@@ -24,17 +24,17 @@ admin.site.register(ShoppingBasket, ShoppingBasketAdmin)
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('isbn', 'year', 'title', 'price', 'publisher_name',
-                    'author_name')
+    list_display = ('isbn', 'year', 'title', 'price', 'publisher_fk',
+                    'author_fk')
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == 'publisher_name':
+        if db_field.name == 'publisher_fk':
             publishers = Publisher.objects.all()
-            # publishers_names = [publisher.name for publisher in publishers]
+            # publishers_fks = [publisher.name for publisher in publishers]
             kwargs['queryset'] = publishers
-        if db_field.name == 'author_name':
+        if db_field.name == 'author_fk':
             authors = Author.objects.all()
-            # authors_names = [author.name for author in authors]
+            # authors_fks = [author.name for author in authors]
             kwargs['queryset'] = authors
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
